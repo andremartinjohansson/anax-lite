@@ -2,6 +2,7 @@
 
 html {
     overflow-y: scroll;
+    overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -42,6 +43,11 @@ body {
     .navbar {
         max-width: 60%;
         margin: 0 auto;
+        float: right;
+        min-width: 500px;
+        li {
+            display: inline;
+        }
     }
 }
 
@@ -91,4 +97,92 @@ body {
 
 .margin-top30 {
     margin-top: 30px;
+}
+
+.session-code {
+    width: 40%;
+    display: block;
+    padding: 20px;
+    margin: 40px;
+    border: 1px solid gray;
+}
+
+.session-list {
+    margin-bottom: 30px;
+    margin-top: 30px;
+    li {
+        display: inline;
+        a {
+            text-decoration: none;
+            padding: 10px;
+            background-color: #006000;
+            color: white;
+            border-radius: 2px;
+            border: 1px solid black;
+            &:hover {
+                background-color: transparent;
+                border: 1px solid white;
+            }
+        }
+    }
+}
+
+.red {
+    color: red;
+}
+
+.gray {
+    color: darkgray;
+    font-size: 12px;
+}
+
+.calendar {
+    width: 80%;
+    margin: 10px auto;
+    .days {
+        td {
+            text-align: center;
+            vertical-align: middle;
+            height: 20px;
+        }
+    }
+    th {
+        border: 1px solid #e9e9e9;
+    }
+    td {
+        width: 100/7%;
+        height: 50px;
+        text-align: right;
+        vertical-align: top;
+        padding: 5px;
+        border: 1px solid #e9e9e9;
+    }
+}
+
+.month-pic {
+    text-align: center;
+    img {
+        max-width: 80%;
+        border: 1px solid white;
+    }
+}
+
+.right {
+    float: right;
+}
+
+.cal-nav-buttons {
+    width: 50%;
+    margin: 50px auto;
+}
+
+.button {
+    background-color: transparent;
+    color: #006000;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    &:hover {
+        color: #e9e9e9;
+    }
 }

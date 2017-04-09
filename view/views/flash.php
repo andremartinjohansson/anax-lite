@@ -1,3 +1,3 @@
     <div class="flash">
-        <img src="image/blekinge.jpg" alt="flash image">
+        <img src="<?=$app->url->asset('image/blekinge.jpg')?>" alt="flash image">
     </div>

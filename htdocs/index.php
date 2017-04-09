@@ -20,6 +20,15 @@ $app->url     = new \Anax\Url\Url();
 $app->router  = new \Anax\Route\RouterInjectable();
 $app->view     = new \Anax\View\ViewContainer();
 
+//Session
+$app->session = new QuasaR\Session\Session();
+$app->session->start();
+
+//Navbar
+$app->navbar = new QuasaR\Navbar\Navbar();
+$app->navbar->setApp($app);
+$app->navbar->configure("navbar.php");
+
 // Inject $app into the view container for use in view files.
 $app->view->setApp($app);
 
@@ -39,6 +48,9 @@ $app->url->setScriptName($app->request->getScriptName());
 // Update url configuration with values from config file.
 $app->url->configure("url.php");
 $app->url->setDefaultsFromConfiguration();
+
+//Stylesheet
+$app->style = $app->url->asset("css/style.min.css");
 
 // Load the routes
 require ANAX_INSTALL_PATH . "/config/route.php";

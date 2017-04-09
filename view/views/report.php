@@ -85,7 +85,83 @@
             jag tycker det känns bättre när man kör mot en riktig server. Man känner
             sig lite coolare då.</p>
             <h2>Kmom02</h2>
-            <p>Text kommer här.</p>
+            <h4>Hur känns det att skriva kod utanför och inuti ramverket, ser du fördelar och nackdelar med de olika sätten?</h4>
+            <p>Det var lite svårt att hänga med först, men känner att jag börjar
+            få koll på hur man kan jobba inne och utanför ramverket. En fördel med att
+            integrera något i ramverket är att koden kan användas direkt i vyerna -
+            t.ex. jag valde att lägga mitt Session-objekt i index.php som låter mig
+            använda sessionen i alla mina vyer hur jag vill, vilket är väldigt smidigt.
+            Så när det gäller kod som kan återanvändas i många eller alla vyer så kan
+            det vara en okej idé att lägga den i ramverket. Annars är det kanske bättre
+            att lägga det utanför.<br><br>
+            Jag har skrivet en hel del php direkt i mina vyer men egentligen vill
+            jag fortsätta att hålla mina vyer så rena som möjligt - alltså att de bara
+            innehåller informationen som ska presenteras och inte skapa information.
+            När jag får mer tid tänker jag flyttade tillbaka den koden från vyerna till
+            t.ex. config-filer eller liknande. Jag har bara inte haft tid för det än,
+            men det är så jag vill ha det.<br><br>
+            Men på grund av detta är jag inte riktigt igång med "var kan jag lägga koden",
+            så jag har inte mycket mer att säga om just detta.</p>
+            <h4>Hur väljer du att organisera dina vyer?</h4>
+            <p>Jag har än så länge inte lagt mycket tid och tanke bakom detta.
+            Alla mina vyer ligger under view/views utan några andra mappar. Igen,
+            detta är en sån sak jag inte riktigt haft tid att greja med, då all
+            tid går till det som uppgifterna kräver. Jag har dessutom valt att inte
+            skapa navbar1 eller navbar2 mappar då jag bara uppdaterar min navbar och
+            det finns ingen anlending att spara en gammal navbar. Dock försöker
+            använda så få vyer som möjligt - t.ex. använder jag bara en vy till
+            alla mina session routes, då jag tycker det blir bättre och renare.
+            Session innehåller inte så mycket information att alla routes behöver
+            egna vyer, speciellt när många routes bara redirectar tillbaka.<br><br>
+            Men om vi börjar jobba mer med undersidor så kommer jag börja skapa
+            fler mappar för vyerna, men för tillfället känner jag att det är inte helt
+            nödvändigt. Om en mapp ska skapas ska den kunna innehåller fler än en
+            vy för att det ska kännas nödvändigt, tycker jag.</p>
+            <h4>Berätta om hur du löste integreringen av klassen Session.</h4>
+            <p>Som sagt skapade jag session-objektet i frontkontrollern så den
+            kan nås via $app. Jag valde också att start sessionen direkt i frontkontrollern
+            så den alltid är startad i all vyer. Själva Session-klassen ligger under
+            src/Session/Session.php och jag tog hjälp av övningen för att skapa
+            den.<br><br>
+            Sessionen testas med hjälp av session.php. Vad session.php visar beror
+            på routen, då detta är min enda vy för hela session-uppgiften. Jag skapade
+            en session.php under route som innehåller mina routes for sessions undersidor.
+            Direkt i routern haterar jag destroy, set, get, dump och annat av session,
+            och även redirects via $app->response->redirect. På så sätt behöver jag
+            bara en vy som uppdaterar sin information beroende på route. Det finns
+            inte mycket anledning till fler vyer.</p>
+            <h4>Berätta om hur du löste uppgiften med Tärningsspelet 100/Månadskalendern, hur du tänkte, planerade och utförde uppgiften samt hur du organiserade din kod?</h4>
+            <p>Jag valde att göra månadskalendern då det kändes mest användbart.
+            Håller det enkelt med två klasser, Calendar och Month. Calendar tar
+            emot två parametrar, $month och $year, och utifrån dem skapas månaden
+            som sedan används för att skapa kalendern för den månaden. Jag skapar
+            alltså Calendar-objektet direkt i vyn calendar.php. Månaden och året som
+            skapas är nuvarande by default, men om man klickar på knapparna
+            "Next month", "Next year" i vyn används GET för att öka värdet på månaden.
+            Och det värdet skickas då med när Calendar-objektet skapas igen när sidan
+            laddas om. Om månad går från December till Januari eller på andra hållet
+            så ändras också året.
+            <br><br>
+            Så Calendar-klassen innehåller ett Month-objekt, och jobbar huvudsakligen
+            med att skapa HTML för själva kalendern. Month-klassen innehåller all
+            information om månaden, och har även koll på föregående månad för att
+            skriva ut datum för den i kalendern (med en annan färg och lite mindre
+            font, då de tillhör en annan månad). Jag hade nite denna strukturen från
+            början, för jag hade allting i Calendar först. Men jag tyckte det blev
+            lite rörigt och det blev mycket bättre om jag skapade månaden i en egen
+            klass. Jag tog mycket hjälp av internet för själva koden som skapar
+            datum osv men jag har skapat min egen kod och struktur som jag är nöjd med.
+            <br><br>
+            Så egenligen planerade jag inte koden från början då jag inte helt visste
+            hur jag skulle skriva koden. Så jag jobbade med att organisera koden
+            under tiden jag jobbade. Jag är inte helt nöjd med hur jag löste det,
+            men jag höll det enkelt och gjorde vad jag kunde med den begränsade
+            tid jag hade. Så med tanke på det är jag nöjd.</p>
+            <h4>Några tankar kring SQL så här långt?</h4>
+            <p>Inte mycket att säga, det har gått bra än så länge. Jag har gjort
+            till och med uppgift 12 och har inte haft några problem alls. Mycket
+            känns igen från HTMLPHP kursen men det är väldigt nyttigt att ha
+            en rejäl genomgång av det igen.</p>
             <h2>Kmom03</h2>
             <p>Text kommer här.</p>
             <h2>Kmom04</h2>

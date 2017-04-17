@@ -1,11 +1,11 @@
 <?php
 
 $app->router->addInternal("404", function () use ($app) {
-    $app->view->add("views/header", ["title" => "404 Not Found"]);
-    $app->view->add("views/navbar");
-    $app->view->add("views/flash");
-    $app->view->add("views/404");
-    $app->view->add("views/footer");
+    $app->view->add("includes/header", ["title" => "404 Not Found"]);
+    $app->view->add("includes/navbar");
+    $app->view->add("includes/flash");
+    $app->view->add("internal/404");
+    $app->view->add("includes/footer");
 
     $app->response->setBody([$app->view, "render"])
                   ->send(404);

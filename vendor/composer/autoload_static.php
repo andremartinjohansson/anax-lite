@@ -36,6 +36,7 @@ class ComposerStaticInit3593f44c506947312a8712aed9f34d49
             3 => __DIR__ . '/..' . '/anax/router/src',
             4 => __DIR__ . '/..' . '/anax/response/src',
             5 => __DIR__ . '/..' . '/anax/view/src',
+            6 => __DIR__ . '/..' . '/anax/database/src',
         ),
     );
 

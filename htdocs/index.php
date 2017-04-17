@@ -24,10 +24,23 @@ $app->view     = new \Anax\View\ViewContainer();
 $app->session = new QuasaR\Session\Session();
 $app->session->start();
 
+//Cookie
+$app->cookie = new QuasaR\Cookie\Cookie();
+
 //Navbar
 $app->navbar = new QuasaR\Navbar\Navbar();
 $app->navbar->setApp($app);
 $app->navbar->configure("navbar.php");
+
+//DB
+$app->db = new \QuasaR\Database\DatabaseConfigure();
+$app->db->configure("database.php");
+$app->db->setDefaultsFromConfiguration();
+$app->db->connect();
+
+//Users
+$app->users = new \QuasaR\Users\Users();
+$app->users->setApp($app);
 
 // Inject $app into the view container for use in view files.
 $app->view->setApp($app);

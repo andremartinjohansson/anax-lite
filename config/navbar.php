@@ -4,6 +4,8 @@ return [
     "Home" => "",
     "About" => "about",
     "Reports" => "report",
-    "Test" => "test",
-    "Session" => "session"
+    "Session" => "session",
+    "Calendar" => "calendar",
+    "Login" => "login",
+    "Register" => "create_user"
 ];

@@ -21,11 +21,11 @@ $app->router->add("session/decrease", function () use ($app) {
 });
 
 $app->router->add("session/dump", function () use ($app) {
-    $app->view->add("views/header", ["title" => "Session"]);
-    $app->view->add("views/navbar");
-    $app->view->add("views/flash");
-    $app->view->add("views/session");
-    $app->view->add("views/footer");
+    $app->view->add("includes/header", ["title" => "Session"]);
+    $app->view->add("includes/navbar");
+    $app->view->add("includes/flash");
+    $app->view->add("base/session");
+    $app->view->add("includes/footer");
 
     $app->response->setBody([$app->view, "render"])
                   ->send();

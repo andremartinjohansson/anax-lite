@@ -163,7 +163,73 @@
             känns igen från HTMLPHP kursen men det är väldigt nyttigt att ha
             en rejäl genomgång av det igen.</p>
             <h2>Kmom03</h2>
-            <p>Text kommer här.</p>
+            <h4>Hur kändes det att jobba med PHP PDO, SQL och MySQL?</h4>
+            <p>Lite rörigt i början men annars kul och inga särskilda problem. Har
+            länge viljat börja med MySQL så det är absolut kul att komma igång med,
+            speciellt när vi får använda det till ett inloggningssystem. PDO och
+            SQLite har vi tidigare använt i PHP så det kändes bekvämt att jobba med
+            databaser i PHP allmänt. Det kluriga var att få till det i ramverket
+            genom klasser osv.</p>
+            <h4>Reflektera kring koden du skrev för att lösa uppgifterna, klasser, formulär, integration Anax Lite?</h4>
+            <p>Det blev många vyer då jag följde övningen till stor del i början,
+            och det gillar jag inte riktigt. Jag hade säkert kunna skippa några vyer
+            och lägga den koden direkt i routern eller liknande. Men det får bli vid
+            senare tillfälle då det inte verkar finnas någon tid till det nu.
+            <br><br>
+            Det blev då också många nya routes så jag skapade två nya mappar under
+            route, "admin" och "users". Jag delade upp mina vyer på samma sätt -
+            då har jag koll på exakt vad som är admin-gränssnittet och inte. Blir
+            lätt att hantera tycker jag.
+            <br><br>
+            Till uppgifterna skapade jag tå nya klasser, en för koppling till
+            Databas och en för hantering av användare. Blev nöjd med det då det
+            blev en bra uppdelning av koden och gör det mycket lättare att hantera
+            datan i databasen. Users klassen använder sig av databasobjektet för
+            kommunicera med databasen genom $app.
+            <br><br>
+            Vyerna fick dock ändå ganska mycket PHP-kod, och jag hade gärna jobbat
+            på detta - finslipat lite - men det finns helt enkelt inte tid till det
+            vilket är tråkigt... Bland annat blev det lite rörigt med alla formulär
+            som ska hanteras genom processingsidor. Jag visste inte riktigt hur jag
+            skulle göra det bättre men det får bli någonting jag tittar närmre på
+            under kursens gång.
+            <br><br>
+            Jag nöjde mig med en tabell i databasen med begränsat antal kolumner
+            (namn, lösen, roll). Men det blir ju bra till det vi har gjort hittills.
+            Rollen kan vara "user" eller "admin" - det är alltså där man ser om
+            en användare är admin eller inte. Om en användare är rollen "admin"
+            så finns en länk på deras profil, "Admin page" som tar en till
+            en tabell med alla användare. Och därifrån kan administratören redigera
+            användarnas namn, lösenord, roll och även lägga till och ta bort användare.
+            Jag använder mig av en cookie för att spara användarens roll, och den
+            visas högst uppe på profilsidan.
+            <br><br>
+            Vill ni komma åt admin-sidorna kan ni logga in med "admin" username
+            och "admin" lösenord. Han ger er tillgång till gränssnittet.</p>
+            <h4>Känner du dig hemma i ramverket, dess komponenter och struktur?</h4>
+            <p>Jo, det tycker jag nu. Absolut. Jag gillar verkligen sättet vi kan
+            jobba med $app både i klasser och vyer, det underlättar otroligt mycket.
+            Och själva strukturen känner jag mig hemma i ny. Det är inget problem
+            att hitta saker eller veta vart man ska lägga sin kod. Känns so att
+            allting har sin plats och det känns bra.</p>
+            <h4>Hur bedömmer du svårighetsgraden på kursens inledande kursmoment, känner du att du lär dig något/bra saker?</h4>
+            <p>Svårighetsgraden i sig har varit helt okej. Det är belastningen som
+            gör det lite jobbigare. Det är väldigt mycket som ska göras på ganska
+            lite tid. Inte bara ska vi koda uppgifterna utan koden ska vara snygg,
+            bra uppdelad och webbsidan ska vara stylad och se fin ut. Själva grejerna
+            kanske inte verkar vara så stora i sig, men när vi ska lägga in dem
+            på vår sida så tillkommer en hel del jobb. Det blir för mycket helt enkelt.
+            För min del blir det bara värre när det är så mycket som ska hinnas med,
+            man får prioritera och lägga vissa saker åt sidan istället för att kanske
+            fördjupa sig lite i det man gör och få bättre förståelse för det. Jag
+            känner att jag lär mig saker och det är bra saker, men jag lär mig inte
+            så mycket som jag skulle vilja eller som kanske är tanken. Det blir stressigt
+            vilket oftast betyder att koden blir slarvig. Det är tråkigt när man
+            vill spendera lite mer tid på att finslipa och kanske fördjupa sig lite
+            i det man gör, men inte kan på grund av tidsbrist. I dessa första
+            kursmomenten har det också funnits massiva övningar som ska jobbas
+            igenom och 3-4 uppgifter on top of that. Vet inte riktigt hur ni tänkte
+            där men det blir för mycket helt enkelt.</p>
             <h2>Kmom04</h2>
             <p>Text kommer här.</p>
             <h2>Kmom05</h2>

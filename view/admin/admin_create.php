@@ -1,12 +1,3 @@
-<?php
-
-if ($app->session->get("role") != "admin") {
-    echo "<p class='center'>You do not have permission to access this page. Return or you will be shot.</p>";
-    header("Refresh:2; " . $app->url->create('login'));
-}
-
-?>
-
 <main class="main profile">
     <article class="article-main article-user article-profile">
         <form action="<?=$app->url->create('add_user')?>" method="POST">

@@ -10,6 +10,7 @@ class ComposerStaticInit3593f44c506947312a8712aed9f34d49
         '6b9cbd293adb7d895e163aebb2790539' => __DIR__ . '/..' . '/anax/common/src/functions.php',
         'dfc9e5dd545737efbb98020db79bfa08' => __DIR__ . '/..' . '/mos/cimage/defines.php',
         '507fe79d3e285fab95fad400b8d42245' => __DIR__ . '/..' . '/mos/cimage/functions.php',
+        '4a3c285f7eca5ca2e89db5edb30fb321' => __DIR__ . '/../..' . '/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -30,13 +31,13 @@ class ComposerStaticInit3593f44c506947312a8712aed9f34d49
         ),
         'Anax\\' => 
         array (
-            0 => __DIR__ . '/..' . '/anax/request/src',
-            1 => __DIR__ . '/..' . '/anax/common/src',
-            2 => __DIR__ . '/..' . '/anax/url/src',
-            3 => __DIR__ . '/..' . '/anax/router/src',
-            4 => __DIR__ . '/..' . '/anax/response/src',
-            5 => __DIR__ . '/..' . '/anax/view/src',
-            6 => __DIR__ . '/..' . '/anax/database/src',
+            0 => __DIR__ . '/..' . '/anax/common/src',
+            1 => __DIR__ . '/..' . '/anax/url/src',
+            2 => __DIR__ . '/..' . '/anax/view/src',
+            3 => __DIR__ . '/..' . '/anax/database/src',
+            4 => __DIR__ . '/..' . '/anax/request/src',
+            5 => __DIR__ . '/..' . '/anax/router/src',
+            6 => __DIR__ . '/..' . '/anax/response/src',
         ),
     );
 

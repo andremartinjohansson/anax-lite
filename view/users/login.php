@@ -1,7 +1,7 @@
 <?php
 
 if ($app->session->has("name")) {
-    header("Location: " . $app->url->create('profile'));
+    $app->redirect("profile");
 }
 
 $user_loggedin = "";
@@ -27,7 +27,8 @@ if ($app->session->has("name")) {
                 } elseif ($app->session->get("error") == "user not found") {
                     echo "<p>Username doesn't exist.</p>";
                     $app->session->delete("error");
-                } elseif ($app->session->get("success") == "logout") {
+                }
+                if ($app->session->get("success") == "logout") {
                     echo "<p>You've been logged out.</p>";
                     $app->session->delete("success");
                 }
@@ -43,6 +44,6 @@ if ($app->session->has("name")) {
                 </tr>
             </table>
         </form>
-        <p>Don't have an account? <a href="<?=$app->url->create('create_user')?>">Sign up</a></p>
+        <p>Don't have an account? <a href="<?=$app->url->create('register')?>">Sign up</a></p>
     </article>
 </main>

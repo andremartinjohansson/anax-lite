@@ -7,5 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'QuasaR\\' => array($baseDir . '/src'),
-    'Anax\\' => array($vendorDir . '/anax/request/src', $vendorDir . '/anax/common/src', $vendorDir . '/anax/url/src', $vendorDir . '/anax/router/src', $vendorDir . '/anax/response/src', $vendorDir . '/anax/view/src', $vendorDir . '/anax/database/src'),
+    'Anax\\' => array($vendorDir . '/anax/common/src', $vendorDir . '/anax/url/src', $vendorDir . '/anax/view/src', $vendorDir . '/anax/database/src', $vendorDir . '/anax/request/src', $vendorDir . '/anax/router/src', $vendorDir . '/anax/response/src'),
 );

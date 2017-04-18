@@ -1,11 +1,5 @@
 <?php
 
-if ($app->session->get("role") != "admin") {
-    echo "You do not have permission to access this page. Return or you will be shot.";
-    header("Refresh:2; " . $app->url->create('login'));
-    die();
-}
-
 $defaultRoute = $app->url->create("admin") . "?";
 
 $searchName = (isset($_GET["search"])) ? $_GET["search"] : null;

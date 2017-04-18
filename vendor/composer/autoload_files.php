@@ -9,4 +9,5 @@ return array(
     '6b9cbd293adb7d895e163aebb2790539' => $vendorDir . '/anax/common/src/functions.php',
     'dfc9e5dd545737efbb98020db79bfa08' => $vendorDir . '/mos/cimage/defines.php',
     '507fe79d3e285fab95fad400b8d42245' => $vendorDir . '/mos/cimage/functions.php',
+    '4a3c285f7eca5ca2e89db5edb30fb321' => $baseDir . '/src/functions.php',
 );

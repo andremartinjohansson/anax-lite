@@ -7,5 +7,25 @@ namespace QuasaR\App;
  */
 class App
 {
+    public function redirect($url)
+    {
+        $this->response->redirect($this->url->create($url));
+    }
 
+    public function renderDefaultLayout($route, $title, $byline = false, $flash = true)
+    {
+        $this->view->add("includes/header", ["title" => $title]);
+        $this->view->add("includes/navbar");
+        if ($flash == true) {
+            $this->view->add("includes/flash");
+        }
+        $this->view->add($route);
+        if ($byline == true) {
+            $this->view->add("includes/byline");
+        }
+        $this->view->add("includes/footer");
+
+        $this->response->setBody([$this->view, "render"])
+                      ->send();
+    }
 }

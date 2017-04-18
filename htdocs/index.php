@@ -42,6 +42,10 @@ $app->db->connect();
 $app->users = new \QuasaR\Users\Users();
 $app->users->setApp($app);
 
+//Admin
+$app->admin = new \QuasaR\Admin\Admin();
+$app->admin->setApp($app);
+
 // Inject $app into the view container for use in view files.
 $app->view->setApp($app);
 

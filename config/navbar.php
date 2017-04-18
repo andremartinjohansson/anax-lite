@@ -7,5 +7,5 @@ return [
     "Session" => "session",
     "Calendar" => "calendar",
     "Login" => "login",
-    "Register" => "create_user"
+    "Register" => "register"
 ];

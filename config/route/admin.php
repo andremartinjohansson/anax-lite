@@ -1,67 +1,46 @@
 <?php
 
-$app->router->add("admin", function () use ($app) {
-    $app->view->add("includes/header", ["title" => "Admin Area"]);
-    $app->view->add("includes/navbar");
-    // $app->view->add("includes/flash");
-    $app->view->add("admin/admin");
-    $app->view->add("includes/footer");
+$app->router->add("admin/**", function () use ($app) {
+    ifNotAdmin($app, "login");
+});
 
-    $app->response->setBody([$app->view, "render"])
-                  ->send();
+$app->router->add("admin", function () use ($app) {
+    $app->renderDefaultLayout("admin/admin", "Admin Area", $byline = false, $flash = false);
 });
 
 $app->router->add("edit", function () use ($app) {
-    $app->view->add("includes/header", ["title" => "Edit User"]);
-    $app->view->add("includes/navbar");
-    // $app->view->add("includes/flash");
-    $app->view->add("admin/edit");
-    $app->view->add("includes/footer");
-
-    $app->response->setBody([$app->view, "render"])
-                  ->send();
-});
-
-$app->router->add("update", function () use ($app) {
-    $app->view->add("includes/header", ["title" => "Update"]);
-    $app->view->add("includes/navbar");
-    // $app->view->add("includes/flash");
-    $app->view->add("admin/update");
-    $app->view->add("includes/footer");
-
-    $app->response->setBody([$app->view, "render"])
-                  ->send();
-});
-
-$app->router->add("delete", function () use ($app) {
-    $app->view->add("includes/header", ["title" => "Delete"]);
-    $app->view->add("includes/navbar");
-    // $app->view->add("includes/flash");
-    $app->view->add("admin/delete");
-    $app->view->add("includes/footer");
-
-    $app->response->setBody([$app->view, "render"])
-                  ->send();
+    $app->renderDefaultLayout("admin/edit", "Edit User", $byline = false, $flash = false);
 });
 
 $app->router->add("admin_create", function () use ($app) {
-    $app->view->add("includes/header", ["title" => "Create User"]);
-    $app->view->add("includes/navbar");
-    // $app->view->add("includes/flash");
-    $app->view->add("admin/admin_create");
-    $app->view->add("includes/footer");
-
-    $app->response->setBody([$app->view, "render"])
-                  ->send();
+    $app->renderDefaultLayout("admin/admin_create", "Create User", $byline = false, $flash = false);
 });
 
 $app->router->add("add_user", function () use ($app) {
-    $app->view->add("includes/header", ["title" => "Adding User"]);
-    $app->view->add("includes/navbar");
-    // $app->view->add("includes/flash");
-    $app->view->add("admin/add_user");
-    $app->view->add("includes/footer");
+    ifNotPost($app, $_POST, "admin");
 
-    $app->response->setBody([$app->view, "render"])
-                  ->send();
+    $username = isset($_POST["name"]) ? htmlentities($_POST["name"]) : null;
+    $userPass = isset($_POST["pass"]) ? htmlentities($_POST["pass"]) : null;
+    $userRole = isset($_POST["user_role"]) ? htmlentities($_POST["user_role"]) : null;
+
+    $app->admin->add($username, $userPass, $userRole);
+});
+
+$app->router->add("update", function () use ($app) {
+    ifNotPost($app, $_POST, "admin");
+
+    $username = (isset($_POST["name"])) ? $_POST["name"] : null;
+    $password = (isset($_POST["pass"])) ? $_POST["pass"] : null;
+    $oldUser = (isset($_POST["old_username"])) ? $_POST["old_username"] : null;
+    $role = (isset($_POST["user_role"])) ? $_POST["user_role"] : null;
+
+    $app->admin->update($username, $password, $oldUser, $role);
+});
+
+$app->router->add("delete", function () use ($app) {
+    ifNotPost($app, $_POST, "admin");
+
+    $username = (isset($_POST["username"])) ? $_POST["username"] : null;
+
+    $app->admin->delete($username);
 });

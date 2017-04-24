@@ -20,9 +20,9 @@ $app->router->add("profile", function () use ($app) {
 $app->router->add("password", function () use ($app) {
     ifNotLoggedIn($app, "login");
 
-    $oldPass = isset($_POST["old_pass"]) ? htmlentities($_POST["old_pass"]) : null;
-    $newPass = isset($_POST["new_pass"]) ? htmlentities($_POST["new_pass"]) : null;
-    $rePass = isset($_POST["re_pass"]) ? htmlentities($_POST["re_pass"]) : null;
+    $oldPass = $app->request->getPost("old_pass");
+    $newPass = $app->request->getPost("new_pass");
+    $rePass = $app->request->getPost("re_pass");
 
     $app->users->handlePasswordChange($oldPass, $newPass, $rePass);
 
@@ -33,8 +33,8 @@ $app->router->add("password", function () use ($app) {
 $app->router->add("validate", function () use ($app) {
     ifNotPost($app, $_POST, "login");
 
-    $username = isset($_POST["name"]) ? htmlentities($_POST["name"]) : null;
-    $userPass = isset($_POST["pass"]) ? htmlentities($_POST["pass"]) : null;
+    $username = $app->request->getPost("name");
+    $userPass = $app->request->getPost("pass");
 
     $app->users->validateLogin($username, $userPass);
 });
@@ -42,9 +42,9 @@ $app->router->add("validate", function () use ($app) {
 $app->router->add("new_user", function () use ($app) {
     ifNotPost($app, $_POST, "register");
 
-    $username = isset($_POST["new_name"]) ? htmlentities($_POST["new_name"]) : null;
-    $userPass = isset($_POST["new_pass"]) ? htmlentities($_POST["new_pass"]) : null;
-    $reUserPass = isset($_POST["re_pass"]) ? htmlentities($_POST["re_pass"]) : null;
+    $username = $app->request->getPost("new_name");
+    $userPass = $app->request->getPost("new_pass");
+    $reUserPass = $app->request->getPost("re_pass");
 
     $app->users->handleNewUser($username, $userPass, $reUserPass);
 });

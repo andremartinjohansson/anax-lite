@@ -359,4 +359,18 @@ class Request
 
         return $this->post;
     }
+
+
+
+    public function getPostArray($key, $default = null)
+    {
+        if (is_array($key)) {
+            $key = array_flip($key);
+            return array_replace($key, array_intersect_key($_POST, $key));
+        }
+
+        return isset($_POST[$key])
+            ? $_POST[$key]
+            : $default;
+    }
 }

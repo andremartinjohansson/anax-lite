@@ -13,7 +13,8 @@ $_COOKIE["role"] = $app->session->get('role');
 
         <?php
         if ($_COOKIE["role"] == "admin") {?>
-            <p><a class='profile-item' href="<?=$app->url->create('admin')?>">Admin page</a></p><?php
+            <p><a class='profile-item' href="<?=$app->url->create('admin')?>">Manage Users</a></p>
+            <p><a class='profile-item' href="<?=$app->url->create('admin/content')?>">Manage Content</a></p><?php
         }?>
 
         <p><a class='profile-item' href="<?=$app->url->create('password')?>">Change password</a></p>

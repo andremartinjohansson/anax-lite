@@ -6,6 +6,7 @@ return [
     "Reports" => "report",
     "Session" => "session",
     "Calendar" => "calendar",
+    "Blog" => "blog",
     "Login" => "login",
     "Register" => "register"
 ];

@@ -12,6 +12,8 @@ require ANAX_INSTALL_PATH . "/config/error_reporting.php";
 // Get the autoloader by using composers version.
 require ANAX_INSTALL_PATH . "/vendor/autoload.php";
 
+date_default_timezone_set('Europe/Stockholm');
+
 // Add all resources to $app
 $app = new \QuasaR\App\App();
 $app->request = new \Anax\Request\Request();
@@ -45,6 +47,9 @@ $app->users->setApp($app);
 //Admin
 $app->admin = new \QuasaR\Admin\Admin();
 $app->admin->setApp($app);
+
+//TextFilter
+$app->format = new \Mos\TextFilter\CTextFilter();
 
 // Inject $app into the view container for use in view files.
 $app->view->setApp($app);

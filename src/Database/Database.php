@@ -212,16 +212,15 @@ class Database
     public function execute($query, $params = [])
     {
         list($query, $params) = $this->expandParamArray($query, $params);
-
         $this->stmt = $this->pdo->prepare($query);
-        if (!$this->stmt) {
-            $this->statementException($sql, $param);
-        }
+        // if (!$this->stmt) {
+        //     $this->statementException($query, $params);
+        // }
 
         $res = $this->stmt->execute($params);
-        if (!$res) {
-            $this->statementException($sql, $param);
-        }
+        // if (!$res) {
+        //     $this->statementException($query, $params);
+        // }
 
         return $res;
     }
@@ -238,15 +237,15 @@ class Database
      *
      * @throws \Anax\Database\Exception
      */
-    private function statementException($sql, $param)
-    {
-        throw new Exception(
-            $this->stmt->errorInfo()[2]
-            . "<br><br>SQL:<br><pre>$sql</pre><br>PARAMS:<br><pre>"
-            . implode($param, "\n")
-            . "</pre>"
-        );
-    }
+    // private function statementException($sql, $param)
+    // {
+    //     throw new Exception(
+    //         $this->stmt->errorInfo()[2]
+    //         . "<br><br>SQL:<br><pre>$sql</pre><br>PARAMS:<br><pre>"
+    //         . implode($param, "\n")
+    //         . "</pre>"
+    //     );
+    // }
 
 
 

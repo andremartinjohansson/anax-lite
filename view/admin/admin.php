@@ -2,18 +2,16 @@
 
 $defaultRoute = $app->url->create("admin") . "?";
 
-$searchName = (isset($_GET["search"])) ? $_GET["search"] : null;
+$searchName = $app->request->getGet("search");
 
-$orderBy = (isset($_GET["orderby"])) ? $_GET["orderby"] : "name";
-$order = (isset($_GET["order"])) ? $_GET["order"] : "asc";
+$orderBy = $app->request->getGet("orderby", "name");
+$order = $app->request->getGet("order", "asc");
 
-$hits = (isset($_GET["hits"])) ? (int)$_GET["hits"] : 4;
+$hits = $app->request->getGet("hits", 4);
+$hits = (int)$hits;
 
-$sql = "SELECT COUNT(id) AS max FROM Users;";
-$max = $app->db->executeFetchAll($sql);
-$max = ceil($max[0]->max / $hits);
-
-$page = (isset($_GET["page"])) ? (int)$_GET["page"] : 1;
+$page = $app->request->getGet("page", 1);
+$page = (int)$page;
 $offset = $hits * ($page - 1);
 
 if ($searchName) {
@@ -25,46 +23,9 @@ if ($searchName) {
     $users = $app->db->executeFetchAll($sql);
 }
 
-/**
- * Function to create links for sorting.
- *
- * @param string $column the name of the database column to sort by
- * @param string $route  prepend this to the anchor href
- *
- * @return string with links to order by column.
- */
-function orderby($column, $route)
-{
-    return <<<EOD
-<span class='orderby'>
-<a href="{$route}?orderby={$column}&order=asc">&darr;</a>
-<a href="{$route}?orderby={$column}&order=desc">&uarr;</a>
-</span>
-EOD;
-}
-
-/**
- * Use current querystring as base, extract it to an array, merge it
- * with incoming $options and recreate the querystring using the resulting
- * array.
- *
- * @param array  $options to merge into exitins querystring
- * @param string $prepend to the resulting query string
- *
- * @return string as an url with the updated query string.
- */
-function mergeQueryString($options, $prepend = "?")
-{
-    // Parse querystring into array
-    $query = [];
-    parse_str($_SERVER["QUERY_STRING"], $query);
-
-    // Merge query string with new options
-    $query = array_merge($query, $options);
-
-    // Build and return the modified querystring as url
-    return $prepend . http_build_query($query);
-}
+$sql = "SELECT COUNT(id) AS max FROM Users;";
+$max = $app->db->executeFetchAll($sql);
+$max = ceil($max[0]->max / $hits);
 
 ?>
 
@@ -121,7 +82,6 @@ function mergeQueryString($options, $prepend = "?")
                 <td>
                     <form action="<?=$app->url->create('edit')?>" method="GET">
                         <input type="hidden" name="username" value="<?= $user->name ?>">
-                        <!-- <input type="hidden" name="role" value="<?= $user->role ?>"> -->
                         <input class="btn-green" type="submit" value="Edit">
                     </form>
                 </td>

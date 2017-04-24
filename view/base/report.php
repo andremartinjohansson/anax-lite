@@ -231,7 +231,58 @@
             igenom och 3-4 uppgifter on top of that. Vet inte riktigt hur ni tänkte
             där men det blir för mycket helt enkelt.</p>
             <h2>Kmom04</h2>
-            <p>Text kommer här.</p>
+            <h4>Finns något att säga kring din klass för texfilter, eller rent allmänt om formattering och filtrering av text som sparas i databasen av användaren?</h4>
+            <p>Jag valde att ta CTextFilter klassen via composer require och bygga på
+            / ändra själv där det behövdes då det kändes enkalst med tanke på att
+            det fanns mycket annat som skulle göras. Formattering av text sker innan
+            den skrivs ut på webbsidan men det hade nog egentligen varit bättre om
+            det skedde innan den läggs in i databasen. Då hade jag bara behövt den
+            koden på ett ställe istället för att upprepa den. Det är sånt man vill
+            sitta och fixa till nu när man inte har tid...</p>
+            <h4>Berätta hur du tänkte när du strukturerade klasserna och databasen för webbsidor och bloggposter?</h4>
+            <p>Strukturen på databasen har jag gjort helt baserat på övningen
+            i kursmomentet för att vara säker på att allt blev rätt och jag inte
+            missade något. Mycket av min kod skrivs direkt i vyerna då det kändes enklast
+            i början (för att se till att allt funkar som det ska). Jag brukar gilla
+            snygga till koden i efterhand när jag vet att det jag skrivit funkar bra,
+            men det finns ju ingen tid för det nuförtiden så det blir helt enkelt en
+            ganska rörig struktur på allting. Jag försöker dela upp vyer och router
+            kod på ett logiskt sätt men resten blir ganska rörig. Det ligger lite kod
+            i src/functions men inte alls så mycket som skulle behövas. Jag använder
+            min databas klass från tidigare och skriver för det mesta SQL-koden direkt
+            i vyerna. Som jag gjorde denna veckan får jag helt enkelt finslipa och
+            fixa koden i efterhand med tanke på att det är så omfattande kursmoment.</p>
+            <h4>Förklara vilka routes som används för att demonstrera funktionaliteten för webbsidor och blogg (så att en utomstående kan testa).</h4>
+            <p>De är väldigt enkla men bloggen hittas via "/blog", pages hittas via
+            "/pages" och block hittas via "/block". Länk till bloggen finns i navbaren,
+            de andra måste skrivas in direkt i urlen. Vad de visar är väldigt begränsat
+            just nu med de demonstrerar att det faktiskt fungerar. I min route
+            "/test" testar jag lite olika testfiltreringar (nl2br, bbcode, link samt markdown),
+            som stod i uppgiften.</p>
+            <h4>Hur känns det att dokumentera databasen så här i efterhand?</h4>
+            <p>Det känns vettigt även om det inte är så mycket just nu... Men ibland
+            känner jag att jag behöver gå in i databasen för att friska upp minnet
+            om vad som verkligen finns där, och då kan det vara bra att ha det dokumenterat.
+            <br><br>
+            Menar ni själva ER-modellen så känns det bra och det var enkelt att göra med
+            hjälp av MySQL Workbench. Jag valde att exportera den till en PNG direkt
+            (istället för att ta en snapshot). Filerna sparade jag i både kmom04/er1 och
+            anax-lite/sql.</p>
+            <h4>Om du är självkritisk till koden du skriver i Anax Lite, ser du förbättringspotential och möjligheter till alternativ struktur av din kod?</h4>
+            <p>Ja absolut, och det sa jag innan. Det finns många, många möjligheter och
+            önskar enormt mycket att jag hade tiden att sitta och göra förbättringar.
+            Jag tycker det är riktigt coolt med en snygg struktur och snygg kod, men
+            jag kan inte få till det bra när vi ligger under så mycket press och
+            stress. I början av denna veckan gjorde jag stora förbättrningar på
+            koden från föregående veckor, och den strukturen blev jag riktigt nöjd med.
+            Gjorde bland annat en "renderDefaultLayout" till min router som städade upp
+            mycket skräp där, och skapade dessutom min src/functions som har fått
+            några funktioner som bland annat kollar om man är inloggad, admin eller
+            om $_POST är aktiv. Dock känns det som att det blev skräp av allt igen efter
+            denna veckan, men kommer att fortsätta göra förbättringar efter hand.
+            <br><br>
+            Finns mycket coolt man kan göra när det gäller koden och strukturen,
+            nu vill man bara få tid och möjlighet att jobba på det.</p>
             <h2>Kmom05</h2>
             <p>Text kommer här.</p>
             <h2>Kmom06</h2>

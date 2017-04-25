@@ -1,2 +1,0 @@
-
-Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 36 bytes) in phar://C:/Users/André/Desktop/web/dbwebb-kurser/oophp/me/anax-lite/.bin/phpcs/CodeSniffer/Tokenizers/JS.php on line 1075

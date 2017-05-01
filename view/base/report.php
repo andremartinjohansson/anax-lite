@@ -288,32 +288,83 @@
             <p>Det var väldigt svårt och jobbigt att komma igång. Det var väldigt mycket nytt
             att ta in och uppgiften kändes bara enorm. Jag ville ta den färdiga
             koden för webbshoppen men jag förstod inte tillräckligt för att kunna
-            ta den och jobba utifrån den. Då bestämde jag mig för att köra på
-            på egen hand för att riktigt komma in i det. Det gick ju bra och allting
-            släppte till sist, och jag använder nu många procedures i min kod, tillsammans
-            med det andra. Men resultatet blev att min kod kanske inte blev helt
-            bra. Jag har t.ex. inget inventory table utan hanterar det direkt i
-            products table. Men detta är ju en övning och är ändå hyfsat nöjd med
-            resultatet.</p>
+            ta den och jobba utifrån den (allting kändes bara överväldigande just då,
+            med transactions, procedures, triggers, functions, en hel webbshop...).
+            Då kändes det bättre att bara börja
+            från början på egen hand, vilket jag nu inser var både bra och dåligt.
+            Det var bra på så sätt att jag lärde mig väldigt mycket om hur man kan
+            programmera i databasen, men det tog ju lite extra tid eftersom jag
+            började från scratch. Dessutom blev inte allting som kanske var tänkt,
+            bland annat har jag inget table för inventory, utan detta hanteras direkt
+            i produkterna. Men uppgiften är inte heller så specifik om hur det skulle göras
+            så då är det ju fri tolkning. Dock hade jag hellre haft denna uppgift
+            som bara ren SQL-kodning utan CRUD delen som bara blev en time waster.
+            Vi har gjort mycket CRUD de senaste veckorna - vi vet hur det funkar nu.
+            <br><br>Dessutom kändes det som vi direkt hoppade från ganska enkel
+            SQL-kodning till en massa tables med procedures och allt vad det heter.
+            Därför blir det mycket överväldigande när man börjar på detta kursmomentet,
+            även om det finns mycket kod redo. </p>
             <h4>Hur är din syn på att programmera på detta viset i databasen?</h4>
-            <p>Jag gillar att hålla så mycket kod som möjligt i backenden, så
-            man sen kan använda minimal PHP-kod för att nå datan där. Det är snyggare
-            och blir bättre helt enkelt.</p>
+            <p>Jag gillar att hålla så mycket kod som möjligt i backenden. Det är
+            skönt att bara kalla en procedure i PHP-koden när man vill göra något,
+            istället för att behöva skriva inserts eller updates. Jag gjorde procedures
+            till CRUD delen viket jag tycker blev riktigt bra. Blir snyggare PHP
+            kod också.<br><br>
+            När jag hade kommit igång med allt det nya så var det faktiskt grymt
+            roligt att sitta och programmera i databasen. Det är kul att testa på
+            lite nytt och inte bara sitta och koda formulär hela dagarna. Även om det
+            var mycket nytt så tycker jag alltid det är kul att testa och leka
+            runt med något nytt.</p>
             <h4>Några reflektioner kring din kod för backenden till webbshopen?</h4>
             <p>Jag skrev väldigt många procedures i mitt SQL API för att slippa skriva
-            inserts och så i PHP-koden. Annars är det inget speciellt. Tack vare de
-            massiva uppgifter vi får vecka efter vecka så har jag inte tid att göra
-            mer än just det som behövs för att klara av kraven. Det finns fler grejer
-            jag vill lägga till och förbättra i min kod men har helt enkelt inte tid
-            till detta. Så allmänt är jag nöjd med det jag har gjort men skulle
-            egentligen vilja göra mer.</p>
+            inserts och så i PHP-koden. Annars är det inget speciellt. Det var mycket
+            att hålla koll på när det gällde kundvagn, hur den ska vara kopplad till
+            en kund, hur man ska skapa och "arkivera" ordrar osv. Och jag lärde mig
+            mycket samtidigt som jag gjorde uppgiften, vilket betyder att jag nu i slutet -
+            när jag inte har tid att göra fler ändringar - inser att jag hade kunnat
+            göra många saker bättre. Men hela poängen är ju att vi ska lära oss
+            så den delen känner jag att jag har lyckats med och SQL-koden är ju
+            den bästa jag har skrivit hittills så är ändå väldigt nöjd med det
+            som hunnits med under kursmomentet. Jag tog tiden att skapa procedures
+            för att det skulle bli snyggare och lättare att testa och använda,
+            så just den biten är jag stolt över. Om koden verkligen funkar så bra
+            i verkligheten (via en front-end alltså) är en annan fråga. Huvudsakligen
+            är jag orolig över att den inte ska fungera så bra om flera kunder
+            samtidigt lägger till och tar bort objekt i sin kundvagn. Det fungerar
+            bra när jag testar i databasen men som sagt så vet jag inte 100% om det
+            blir bra i verkligheten - hade säkert kunnat göra det bättre. Dock var
+            detta inget listat krav i uppgiften - verkar som att jag bara hade kunnat
+            en "global" kundvagn för alla användare, då det bara var ett krav att
+            själva kundvagnen skulle fungera.<br><br>
+            Det kändes lite oklart för mig hur man kunde göra med 
+            inventory och "lagerstatus". Jag valde att tolka "lagerstatus" som
+            antalet produkter tillgängliga. Det blir alltså mitt inventory som
+            ligger som en kolumn för varje produkt. Det kändes lättast att göra
+            så men exemplet visar ett annat sätt som förmodligen är bättre. Poängen
+            är att det verkar som att man förlorar mycket på att inte använda kod
+            från exemplet. Så kände jag i alla fall. Men uppgiften var ju ganska
+            fri i hur vi valde att modellera databasen, och jag har gjort på mitt
+            eget sätt (för det mesta) och det verkar funka så i allmänhet är jag
+            nöjd.</p>
             <h4>Något du vill säga om koden generellt i och kring Anax Lite?</h4>
             <p>Det finns mycket som säkert kan göras bättre, och jag vet att
             där finns mycket kod som kan förbättras från tidigare kursmoment. Koden
             till CRUD delen i detta kursmoment kopierade jag i stort sätt bara från
             andra delar av webbplatsen. Bland annat en del kod som jag hade kunnat göra
             bättre genom funktioner i src/functions. Men det blir som det blir. Koden
-            är rörig men det funkar.</p>
+            är rörig men det funkar. <br><br>
+            En sista sak jag vill säga som är lite off-topic men måste sägas är
+            att dbwebb publishfast inte är fast när man får en jäkla massa varningar
+            och errors från node_modules mappen (när man jobbar med LESS). Jag vill
+            inte sitta och jobba i localhost eftersom det många gånger för mig
+            innebär att vissa saker jag trodde var klara och fungerade inte fungerar
+            på studentservern. Istället känns det bättre att testa allting direkt
+            på studentservern - speciellt eftersom jag tror den kör en äldre version
+            av MySQL än vad jag har på localhost. Men då blir det extremt irriterande
+            att behöva sitta och vänta på att dbwebb skriptet ska gå igenom alla
+            meningslösa errors. Dessutom får jag nu valideringsfel på, ja, i stort
+            sätt allting i doc mappen. Blir väldigt lätt att misssa "riktiga"
+            errors då.</p>
             <h2>Kmom06</h2>
             <p>Text kommer här.</p>
             <h2>Kmom07/10</h2>

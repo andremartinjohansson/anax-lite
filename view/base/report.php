@@ -284,7 +284,36 @@
             Finns mycket coolt man kan göra när det gäller koden och strukturen,
             nu vill man bara få tid och möjlighet att jobba på det.</p>
             <h2>Kmom05</h2>
-            <p>Text kommer här.</p>
+            <h4>Gick det bra att komma igång med det vi kallar programmering av databas, med transaktioner, lagrade procedurer, triggers, funktioner?</h4>
+            <p>Det var väldigt svårt och jobbigt att komma igång. Det var väldigt mycket nytt
+            att ta in och uppgiften kändes bara enorm. Jag ville ta den färdiga
+            koden för webbshoppen men jag förstod inte tillräckligt för att kunna
+            ta den och jobba utifrån den. Då bestämde jag mig för att köra på
+            på egen hand för att riktigt komma in i det. Det gick ju bra och allting
+            släppte till sist, och jag använder nu många procedures i min kod, tillsammans
+            med det andra. Men resultatet blev att min kod kanske inte blev helt
+            bra. Jag har t.ex. inget inventory table utan hanterar det direkt i
+            products table. Men detta är ju en övning och är ändå hyfsat nöjd med
+            resultatet.</p>
+            <h4>Hur är din syn på att programmera på detta viset i databasen?</h4>
+            <p>Jag gillar att hålla så mycket kod som möjligt i backenden, så
+            man sen kan använda minimal PHP-kod för att nå datan där. Det är snyggare
+            och blir bättre helt enkelt.</p>
+            <h4>Några reflektioner kring din kod för backenden till webbshopen?</h4>
+            <p>Jag skrev väldigt många procedures i mitt SQL API för att slippa skriva
+            inserts och så i PHP-koden. Annars är det inget speciellt. Tack vare de
+            massiva uppgifter vi får vecka efter vecka så har jag inte tid att göra
+            mer än just det som behövs för att klara av kraven. Det finns fler grejer
+            jag vill lägga till och förbättra i min kod men har helt enkelt inte tid
+            till detta. Så allmänt är jag nöjd med det jag har gjort men skulle
+            egentligen vilja göra mer.</p>
+            <h4>Något du vill säga om koden generellt i och kring Anax Lite?</h4>
+            <p>Det finns mycket som säkert kan göras bättre, och jag vet att
+            där finns mycket kod som kan förbättras från tidigare kursmoment. Koden
+            till CRUD delen i detta kursmoment kopierade jag i stort sätt bara från
+            andra delar av webbplatsen. Bland annat en del kod som jag hade kunnat göra
+            bättre genom funktioner i src/functions. Men det blir som det blir. Koden
+            är rörig men det funkar.</p>
             <h2>Kmom06</h2>
             <p>Text kommer här.</p>
             <h2>Kmom07/10</h2>

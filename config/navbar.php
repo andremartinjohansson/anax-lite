@@ -4,9 +4,10 @@ return [
     "Home" => "",
     "About" => "about",
     "Reports" => "report",
-    "Session" => "session",
+    // "Session" => "session",
     "Calendar" => "calendar",
     "Blog" => "blog",
     "Login" => "login",
-    "Register" => "register"
+    "Register" => "register",
+    "Webshop" => "inventory"
 ];

@@ -25,7 +25,10 @@ CREATE TABLE Product (
     description VARCHAR(100),
     image VARCHAR(50),
     price INT,
-    inventory INT(6)
+    inventory INT(6),
+    
+    PRIMARY KEY (`id`),
+	UNIQUE INDEX `title_unique` (`title` ASC)
 );
 
 --
@@ -55,7 +58,9 @@ CREATE TABLE Cart (
     customer INT,
 
 	PRIMARY KEY (id),
-    FOREIGN KEY (prod_id) REFERENCES Product (id)
+    FOREIGN KEY (prod_id) REFERENCES Product (id),
+    INDEX `index_prod` (`prod_id` ASC),
+	INDEX `c_index` (`customer` ASC)
 );
 
 -- StockoutLog Table
@@ -82,7 +87,9 @@ CREATE TABLE `Order` (
     quantity INT,
 
 	PRIMARY KEY (id),
-    FOREIGN KEY (prod_id) REFERENCES Product (id)
+    FOREIGN KEY (prod_id) REFERENCES Product (id),
+    INDEX `prod_id` (`prod_id` ASC),
+	INDEX `o_index` (`order_number` ASC)
 );
 
 -- --------------------------------------
@@ -435,6 +442,8 @@ CALL addToCart(3, 1);
 CALL addToCart(4, 1);
 
 SELECT * FROM VCart;
+
+EXPLAIN SELECT * FROM VCart;
 
 CALL deleteFromCart(1, 1);
 CALL deleteFromCart(2, 1);

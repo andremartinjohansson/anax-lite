@@ -336,7 +336,7 @@
             detta inget listat krav i uppgiften - verkar som att jag bara hade kunnat
             en "global" kundvagn för alla användare, då det bara var ett krav att
             själva kundvagnen skulle fungera.<br><br>
-            Det kändes lite oklart för mig hur man kunde göra med 
+            Det kändes lite oklart för mig hur man kunde göra med
             inventory och "lagerstatus". Jag valde att tolka "lagerstatus" som
             antalet produkter tillgängliga. Det blir alltså mitt inventory som
             ligger som en kolumn för varje produkt. Det kändes lättast att göra
@@ -366,7 +366,79 @@
             sätt allting i doc mappen. Blir väldigt lätt att misssa "riktiga"
             errors då.</p>
             <h2>Kmom06</h2>
-            <p>Text kommer här.</p>
+            <h4>Vad du bekant med begreppet index i databaser sedan tidigare?</h4>
+            <p>Nej inte alls, detta är helt nytt för mig precis som mycket annat
+            när det gäller databaser. Dock har jag använt primär nyckel till nästan
+            alla mina tables men detta var mest för att göra en rad lättåtkomlig,
+            tänkte jag. Visste inte att detta också undviker en full table scan,
+            så det var intressant att lära sig.<br><br>
+            Det kändes inte svårt att begreppa men verkar som att det kan göra
+            hyfsat stor skillnad i en större databas. I allmänhet känns det som
+            jag nu har bättre förståelse för hur databaser fungerar.</p>
+            <h4>Berätta om hur du jobbade i uppgiften om index och vilka du valde att lägga till och skillnaden före/efter.</h4>
+            <p>Jag hade redan primära nycklar i alla mina tables så det var lite klurigt
+            att komma på var man kunde lägga till index. Jag började att kolla var jag
+            använder bland annat WHERE, men även det var svårt då jag har använt
+            UNIQUE på t.ex. usernames och PATH och SLUG i mitt content table. Dock
+            använder jag "type" från mitt content table mycket, så då kunde jag göra
+            ett index där tänkte jag.<br><br>
+            Jag gjorde en EXPLAIN SELECT * FROM content WHERE type = "page", vilket
+            visade en full table scan på 8 rader. Det ska ju inte behövas, så
+            då gjordes en CREATE INDEX på content(type) som skapar ett index
+            "index_type". Nu borde det vara bättre, så testade att köra en EXPLAIN
+            SELECT sats igen och då visar den att den har gjort en scan på två
+            rader istället för 8. Det känns ju bra, eftersom detta är något som
+            används i bloggen och de andra sidorna som visar content. Nu när vi
+            laddar dem sidorna behöver vi inte göra en full table scan varje gång.
+            Vårt content-table är något som skulle kunna växa ganska mycket om
+            vi hade en större sida med aktiv blog osv, då är det bra att vi
+            optimerar den på det här sättet.<br><br>
+            Resten gjorde jag i min webshop. Till en början gjorde jag namnet på produkter
+            unika. Tänkte att man inte bara ska kunna använda id men också namn för
+            att ta fram datan för en produkt. Det känns bra och relevant. Tanken här var
+            att optimera för en eventuell sökfunktion där man kan söka på namnet av
+            en produkt. Nu om man söker t.ex. "ASUS%" så behöver den bara besöka
+            en rad för att få fram resultatet, istället för alla. Det är bättre.
+            Ännu bättre hade det kanske blivit med hjälp av FULLTEXT, men jag vågade
+            inte riktigt att köra på det. Så detta duger för tillfället. Ett tredje
+            index la jag till i mitt Order table på kolumnen order_number. Order
+            innehåller alla ordrar som har gjorts, och meningen är att man ska kunna
+            ta fram en order baserat på dess ordernummer, och inte id. Därför kändes
+            detta som ett väldigt bra ställe att skapa ett index. I en webshop kan
+            antalet ordrar bli extremt högt. Då vill vi inte att alla rader ska
+            besökas varje gång vi vill ta fram en order - det är inte optimalt.
+            Med ett index på order_number fixar vi detta så den istället bara
+            besöker relevanta rader - det blir mycket bättre.<br><br>
+            Jag skapade också index på Cart(prod_id) och Cart(customer), då
+            dessa används i min databaskod, men de blir inte lika relevanta då
+            jag huvudsakligen använder views med joinade tables. Ville bara testa
+            lägga till lite mer index där de kunde kännas relevanta.</p>
+            <h4>Har du tidigare erfarenheter av att skriva kod som testar annan kod?</h4>
+            <p>Ja vi gjorde ju detta lite i oopython-kursen och det kändes väldigt
+            bekant. Kom in i det direkt utan några problem alls. Riktigt bra att
+            man också kan se kodtäckning i procent.</p>
+            <h4>Hur ser du på begreppet enhetstestning och att skriva testbar kod?</h4>
+            <p>Det är mycket användbart och jag tror jag är en av de personerna
+            som faktiskt tycker det är kul att försöka uppnå bra kodtäckning.
+            När jag ser att resultatet är grönt på 100% så tänker jag "min kod är
+            riktigt grym nu". Och jag gillar grym kod. Så jag ser det så är
+            testbar kod bra kod, så om man lyckas komma över 70% har man skrivit
+            bra kod. Dock är min kod inte jättebra, vilket leder mig till nästa punkt.</p>
+            <h4>Hur gick det att hitta testbar kod bland dina klasser i Anax Lite?</h4>
+            <p>Det var lite klurigt att hitta en bra klass att göra tester på. Majoriteten
+            pratar med databasen eller har andra beroenden, vilket gjorde det svårt. Jag
+            började skapa tester till min Session-klass men insåg att det inte skulle
+            gå att starta en session. Då körde jag faktiskt på min Cookie-klass istället,
+            då den är ganska lik. Dock blev det väldigt lätt så jag testade att göra
+            tester för min Calender-klass också. Dock var det inte lika lätt eftersom
+            den använder mycket echo för att skapa HTML via funktioner, och det blir
+            svårt att testa. Jag uppnådde så hög kodtäckning jag kunde där, vilket
+            inte ens var grönt, och nöjde mig med det. Nu såhär i efterhand inser jag
+            att jag hade kunnat göra tester på Textfilter-klassen, men av någon anlendning
+            hade jag helt glömt bort den. Dock tog jag den klassen från exemplet och
+            jag vill hellre göra tester på något jag har kodat själv, så det blev
+            bra såhär ändå.</p>
             <h2>Kmom07/10</h2>
+            <p>Text kommer här.</p>
         </article>
     </main>

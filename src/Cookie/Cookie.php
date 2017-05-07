@@ -36,6 +36,6 @@ class Cookie
 
     public function dump()
     {
-        var_dump($_COOKIE);
+        return $_COOKIE;
     }
 }

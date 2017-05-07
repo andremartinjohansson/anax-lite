@@ -4,11 +4,11 @@ namespace QuasaR\Calendar;
 
 class Calendar
 {
-    private $date;
-    private $month;
-    private $year;
-    private $title;
-    private $calendarMonth;
+    public $date;
+    public $month;
+    public $year;
+    public $title;
+    public $calendarMonth;
 
     public function __construct($month, $year)
     {
